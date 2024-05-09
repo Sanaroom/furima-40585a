@@ -115,4 +115,31 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include("Birthday can't be blank")
     end
   end
+
+  context '新規登録がうまくいくとき' do
+    it '全ての入力事項が、存在すれば登録できる' do
+      expect(@user).to be_valid
+    end
+    it 'パスワードが6文字以上半角英数字であれば登録できる' do
+      @user.password = '123abc'
+      @user.password_confirmation = '123abc'
+      expect(@user).to be_valid
+    end
+    it 'Last_nameが全角（漢字・ひらがな・カタカナ）であれば登録できる' do
+      @user.last_name = '山田'
+      expect(@user).to be_valid
+    end
+    it 'First_nameが全角（漢字・ひらがな・カタカナ）であれば登録できる' do
+      @user.first_name = '陸太郎'
+      expect(@user).to be_valid
+    end
+    it 'Last_nameのフリガナが全角（カタカナ）であれば登録できる' do
+      @user.last_name_kana = 'ヤマダ'
+      expect(@user).to be_valid
+    end
+    it 'First_nameのフリガナが全角（カタカナ）であれば登録できる' do
+      @user.first_name_kana = 'リクタロウ'
+      expect(@user).to be_valid
+    end
+  end
 end
