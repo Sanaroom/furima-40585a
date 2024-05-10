@@ -1,5 +1,8 @@
 class ItemsController < ApplicationController
-  
+  before_action :authenticate_user!, only: [:new, :create]
+  def index
+    @items = Item.all
+  end
   def new
     @item = Item.new
   end
@@ -13,9 +16,11 @@ class ItemsController < ApplicationController
     end
   end
 
+  
+
   private
   def item_params
-    params.require(:item).permit(:image, :user, :name, :category_id, :item_statue_id, :shipping_cost_id, :prefecture_id, :description, :shipping_date_id, :price) # フォームから送られてくるparamsのうち、DBに保存したい値のキーのみをここに記入
+    params.require(:item).permit(:image, :name, :category_id, :item_statue_id, :shipping_cost_id, :prefecture_id, :description, :shipping_date_id, :price) .merge(user_id: current_user.id)# フォームから送られてくるparamsのうち、DBに保存したい値のキーのみをここに記入
   end
 
 
