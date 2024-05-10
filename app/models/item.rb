@@ -14,4 +14,23 @@ class Item < ApplicationRecord
   has_many :comments 
   has_one_attached :image
  
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :category
+  validates :category_id, numericality: { other_than: 1 , message: "can't be blank"} 
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :item_statue
+  validates :item_statue_id, numericality: { other_than: 1 , message: "can't be blank"}
+  
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :shipping_cost
+  validates :shipping_cost_id, numericality: { other_than: 1 , message: "can't be blank"}
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :prefecture
+  validates :prefecture_id, numericality: { other_than: 1 , message: "can't be blank"} 
+  
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :shipping_date
+  validates :shipping_date_id, numericality: { other_than: 1 , message: "can't be blank"}  
 end
