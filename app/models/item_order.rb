@@ -1,10 +1,10 @@
 class ItemOrder
   include ActiveModel::Model
-  attr_accessor :user, :item, :postcode, :prefecture_id, :city, :block, :building, :phone_number,:token
+  attr_accessor :user_id, :item_id, :postcode, :prefecture_id, :city, :block, :building, :phone_number,:token
 
   # orderモデル
-  validates :user, presence: true
-  validates :item, presence: true
+  validates :user_id, presence: true
+  validates :item_id, presence: true
 
   # paymentモデル
   validates :postcode, presence: true
@@ -18,6 +18,6 @@ class ItemOrder
 
   def save
    order=Order.create(user_id: user_id, item_id: item_id)
-   Payment.create(order:order,postcode:postcode, prefecture_id:prefecture_id, city:city, block:block, building:building, phone_number:phone_number)
+   Payment.create(order_id:order.id,postcode:postcode, prefecture_id:prefecture_id, city:city, block:block, building:building, phone_number:phone_number)
   end
 end
