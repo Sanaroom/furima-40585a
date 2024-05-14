@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_item, only: [:index,:create]
-
+  before_action :sold_out_item, only:  [:index,:create,:show]
 
   def index    
     gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
@@ -12,11 +13,14 @@ class OrdersController < ApplicationController
     if @item_order.valid?
      pay_item
       @item_order.save
-      return redirect_to root_path
+      redirect_to root_path
     else
       gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
       render 'index', status: :unprocessable_entity
     end    
+  end
+
+  def show
   end
 
   private
@@ -37,5 +41,12 @@ class OrdersController < ApplicationController
       currency: 'jpy'                 # 通貨の種類（日本円）
     )
   end
+
+  def sold_out_item
+    if @item.user_id == current_user.id || @item.order!= nil
+      redirect_to root_path
+    end 
+  end
+  
 
 end
