@@ -1,4 +1,4 @@
 FactoryBot.define do
-  factory :payment do
+  factory :shipping_cost do
   end
 end

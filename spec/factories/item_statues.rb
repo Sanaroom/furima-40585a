@@ -1,4 +1,4 @@
 FactoryBot.define do
-  factory :payment do
+  factory :item_statue do
   end
 end
