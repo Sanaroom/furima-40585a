@@ -84,6 +84,10 @@ RSpec.describe ItemOrder, type: :model do
       it 'すべての値が正しく入力されていれば保存できること' do
         expect(@item_order).to be_valid
       end
+      it '建物名は空でも購入できる' do
+        @item_order.building = nil
+        expect(@item_order).to be_valid
+      end
     end
   end
 end
