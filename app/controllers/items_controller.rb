@@ -26,6 +26,10 @@ class ItemsController < ApplicationController
     if user_signed_in? && @item && @item.user_id == current_user.id
       redirect_to root_path
     end
+
+    unless @item.user_id == current_user.id || !@item.order.nil?
+      redirect_to root_path
+    end
   end
 
   def update
