@@ -27,7 +27,7 @@ class ItemsController < ApplicationController
       redirect_to root_path
     end
 
-    unless @item.user_id == current_user.id || !@item.order.nil?
+    unless @item.user_id == current_user.id || @item.order.nil?
       redirect_to root_path
     end
   end
