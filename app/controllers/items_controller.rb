@@ -22,13 +22,17 @@ class ItemsController < ApplicationController
   def show
   end
 
-  def edit
-    if user_signed_in? && @item && @item.user_id == current_user.id
-      redirect_to root_path
-    end
+  def edit  
 
-    unless @item.user_id == current_user.id || @item.order.nil?
+    
+
+
+
+
+    if @item.user_id != current_user.id || @item.order!=nil
       redirect_to root_path
+    else
+      render 'edit',status: :unprocessable_entity
     end
   end
 
