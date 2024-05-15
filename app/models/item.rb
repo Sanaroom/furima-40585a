@@ -1,24 +1,24 @@
 class Item < ApplicationRecord
   with_options presence: true do
-    validates :image, presence: true
-    validates :user, presence: true
-    validates :name, presence: true
-    validates :description, presence: true
+    validates :image
+    validates :user
+    validates :name
+    validates :description
+    validates :category_id
+    validates :item_statue_id
+    validates :shipping_cost_id
+    validates :prefecture_id
+    validates :shipping_date_id
+    validates :price
   end
 
-  validates :category_id, presence: true
-  validates :item_statue_id, presence: true
-  validates :shipping_cost_id, presence: true
-  validates :prefecture_id, presence: true
-  validates :shipping_date_id, presence: true
-
-  with_options presence: true, format: { with: /\A[0-9]+\z/ } do
-    validates :price, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 },
+  
+    validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 },
                       presence: { message: "can't be blank" }
-  end
+
 
   belongs_to :user
-  # has_one :order
+  has_one :order
   has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Item, type: :model do
   before do
     user = FactoryBot.create(:user)
-    @item = FactoryBot.build(:item, user:)
+    @item = FactoryBot.build(:item, :user)
   end
 
   describe 'ユーザー新規登録' do
