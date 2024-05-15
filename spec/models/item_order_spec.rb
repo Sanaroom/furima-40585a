@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe ItemOrder, type: :model do
   before do
     user = FactoryBot.create(:user)
-    @item_order = FactoryBot.build(:item_order, user_id: user.id)
+    item = FactoryBot.create(:item)
+    @item_order = FactoryBot.build(:item_order,user_id: user.id,item_id: item.id)
   end
 
   describe '配送先情報の保存' do
@@ -58,8 +59,13 @@ RSpec.describe ItemOrder, type: :model do
         @item_order.valid?
         expect(@item_order.errors.full_messages).to include('Phone number is invalid.')
       end
-      it '電話番号が10桁以上11桁以内の半角数値のみでないと保存できない' do
+      it '電話番号が10桁以上の半角数値のみでないと保存できない' do
         @item_order.phone_number = 880_255_312
+        @item_order.valid?
+        expect(@item_order.errors.full_messages).to include('Phone number is invalid.')
+      end
+      it '電話番号が11桁以内の半角数値のみでないと保存できない' do
+        @item_order.phone_number = 880_255_312_333
         @item_order.valid?
         expect(@item_order.errors.full_messages).to include('Phone number is invalid.')
       end
@@ -81,3 +87,4 @@ RSpec.describe ItemOrder, type: :model do
     end
   end
 end
+
