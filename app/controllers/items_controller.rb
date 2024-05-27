@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show,:search]
+  before_action :set_item, only: [ :edit, :update, :destroy]
 
   def index
     @items = Item.order('created_at DESC')
@@ -20,15 +20,12 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
   end
 
   def edit  
-
-    
-
-
-
-
     if @item.user_id != current_user.id || @item.order!=nil
       redirect_to root_path
     else
@@ -51,6 +48,10 @@ class ItemsController < ApplicationController
     else
       redirect_to root_path
     end
+  end
+
+  def search
+    @items = Item.search(params[:keyword])
   end
 
   private

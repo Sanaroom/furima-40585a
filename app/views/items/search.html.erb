@@ -1,0 +1,7 @@
+<%= render "shared/header" %>
+
+<div class="contents row">
+  <% @items.each do |item| %>
+    <%= render partial: "item", locals: { item: item } %>
+  <% end %>
+</div>
