@@ -47,6 +47,20 @@ a {
 
 /* //画面上部の「人生を変えるフリマアプリ」帯部分 */
 
+.ladies{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.ladies h2{
+  font-size: 30px;
+}
+
+.ladies1{
+  text-align: center;
+}
+
 /* FURIMAが選ばれる3つの理由部分 */
 .select-reason-contents {
   padding: 5vh 15vw;
@@ -214,6 +228,19 @@ a {
 /* //FURIMAの特徴 */
 
 /* 商品一覧 */
+.contents_row3{
+  justify-content: center;
+  display: flex;
+}
+
+.list1{
+  margin-right: 20px;
+  
+}
+
+.contents_row5 p {
+
+}
 
 .item-contents {
   background-color: #FFF;

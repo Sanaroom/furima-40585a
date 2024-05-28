@@ -1,16 +1,15 @@
 <%= render "shared/header" %>
 
-<div class="contents_row5">
-<% if @results.empty? %>
-  <p>検索結果はありません。</p>
-<% else %>
-  <div class="contents_row3">
+
+<div class="category-page">
+  <h1>＜カテゴリー＞</h1>
+
+
+  <div class="content44">
     <% @items.each do |item| %>
       <%= render partial: "item", locals: { item: item } %>
     <% end %>
   </div>
-<% end %>
 </div>
 
 
-  

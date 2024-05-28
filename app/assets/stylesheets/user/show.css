@@ -28,3 +28,29 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.detail-table2 {
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.detail-item2 {
+  width: 20%;
+  background-color: #eee;
+  border: 1px solid #dedede;
+  font-size: 14px;
+  text-align: center;
+}
+
+.detail-value2 {
+  width: 80%;
+  padding: 20px;
+  border: 1px solid #dedede;
+  font-size: 14px;
+}
+
+/**/
+.page-heading{
+  text-align: center;
+  font-size: 40px;
+}

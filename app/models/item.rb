@@ -25,10 +25,18 @@ class Item < ApplicationRecord
 
   def self.search(search)
     if search != ""
-      Item.where('name LIKE(?)', "%#{search}%")
+      Item.where('description LIKE(?) OR name LIKE(?) ',"%#{search}%","%#{search}%")
     else
       Item.all
     end
+  end
+
+  def previous_item
+    Item.where("id < ?", self.id).order("id DESC").first
+  end
+
+  def next_item
+    Item.where("id > ?", self.id).order("id asc").first
   end
 
   extend ActiveHash::Associations::ActiveRecordExtensions

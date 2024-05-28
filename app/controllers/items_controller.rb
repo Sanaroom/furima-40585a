@@ -4,6 +4,9 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.order('created_at DESC')
+    @category = Category.find_by(name: 'レディース')
+    @category1_items = Item.where(category_id: @category.id) if @category
+    
   end
 
   def new
@@ -23,6 +26,9 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
+
+    @previous_item = @item.previous_item
+    @next_item = @item.next_item
   end
 
   def edit  
@@ -52,7 +58,22 @@ class ItemsController < ApplicationController
 
   def search
     @items = Item.search(params[:keyword])
+    @keyword = params[:keyword]
+    @results = @keyword.empty? ? [] : Item.where('name LIKE ?', "%#{@keyword}%")
   end
+
+  def ladies
+    @category = Category.find_by(name: 'レディース')
+    @items = Item.where(category_id: @category.id) if @category
+  end
+
+  def mens
+    @category2 = Category.find_by(name: 'メンズ')
+    @items = Item.where(category_id: @category2.id) if @category2
+  end
+
+  
+ 
 
   private
 

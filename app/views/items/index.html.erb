@@ -19,6 +19,18 @@
   </div>
   <%# /画面上部の「人生を変えるフリマアプリ」帯部分  %>
 
+
+  <div class="ladies">
+    <h2>＜<%= @category.name %>/カテゴリー＞</h2>
+  </div>
+  <div class="ladies1">
+    <% @category1_items.each do |item| %>
+      <%= image_tag item.image , class: "item-img"  if item.image.attached?%><br>
+      商品名:<%= link_to item.name, item_path(item) %>
+    <% end %>
+  </div>
+  
+
   <%# FURIMAが選ばれる3つの理由部分 %>
   <div class='select-reason-contents'>
     <h2 class='title'>

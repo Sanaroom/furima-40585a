@@ -1,7 +1,5 @@
-<div class='item-contents'>
-  <ul class='item-lists'>
-    <% @items.each do |item| %>
-      <li class='list'>
+<div class='item-contents1'>
+      <div class='list1'>
         <%= link_to item_path(item) do %>
           <div class='item-img-content'>
             <%= image_tag item.image , class: "item-img"  if item.image.attached?%>
@@ -25,7 +23,5 @@
             </div>
           </div>
         <%end%>
-      </li>
-    <% end %>
-  </ul>
+      </div>
 </div>

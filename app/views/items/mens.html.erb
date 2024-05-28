@@ -1,0 +1,10 @@
+<%= render "shared/header" %>
+
+<div class="category-page">
+  <h1>＜メンズ＞</h1>
+  <div class="content44">
+    <% @items.each do |item| %>
+      <%= render partial: "item", locals: { item: item } %>
+    <% end %>
+  </div>
+</div>
