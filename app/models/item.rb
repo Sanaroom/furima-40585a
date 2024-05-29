@@ -58,4 +58,12 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :shipping_date
   validates :shipping_date_id, numericality: { other_than: 1, message: "can't be blank" }
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["name", "price", "category_id"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["user"]
+  end
 end

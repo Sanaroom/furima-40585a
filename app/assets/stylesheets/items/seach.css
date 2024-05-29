@@ -1,0 +1,73 @@
+.dai{
+  text-align: center;
+  font-size: 30px;
+}
+
+.to_top{
+  width: 160px;
+  border: 2px solid ;
+  background-color: #3ccace;
+  
+}
+
+.item-contents3{
+  height: 5000px;
+  
+  position: relative;
+  display: flex;
+}
+
+.seaech2{
+  margin-left: 20px;
+  padding-left: 20px;
+  margin-top: 20px;
+  padding-top: 20px;
+  width: 300px;
+  background-color: aquamarine;
+  border: 2px solid lightgray;
+  border-radius: 30px;
+}
+
+.search-field3{
+  margin-bottom: 15px;
+}
+
+.button10{
+  margin-top: 15px;
+  margin-left: 160px;
+  width: 90px;
+}
+
+.item-lists3{
+  padding-left: 20px;
+  padding-top: 20px;
+  
+  width: 1200px;
+  height: 4960px;
+  
+}
+
+.list3{
+  width: 1100px;
+  height: 1000px;
+  left: 20px;
+  background-color: blue; 
+}
+
+.posted-content3{
+  width: 300px;
+  height: 300px;
+  text-align: center;
+  background-color: rgb(147, 247, 213);
+  margin-left: 20px;
+  padding-top: 15px;
+  border: 2px solid lightgray;
+  border-radius: 30px;
+}
+
+
+.image-width{
+  width: 200px;
+  height: 220px; 
+
+}

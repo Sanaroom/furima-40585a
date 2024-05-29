@@ -4,10 +4,14 @@
     <%= link_to image_tag("furima-logo-color.png", class:"furima-icon"), "/" %>
 
     
-      <%= form_with(url: search_items_path, local: true, method: :get, class: "search-form") do |form| %>
-        <%= form.text_field :keyword, placeholder: "キーワードから探す", class: "input-box" %>
-        <%= form.submit "検索",class: "search-icon" %>
+    <%= search_form_for Item.ransack(params[:q]), url: search_items_path, html: {class: "search-form"} do |f| %>
+      <%= f.text_field :name, placeholder: '商品名から探す', class: 'input-box' %>
+      <br>
+      <%= f.label :submit, class: "search-button" do %>
+        
+      <%= f.submit :submit, id: "q_submit", style: "display: none;"%>
       <% end %>
+    <% end %>
 
 
   </div>
