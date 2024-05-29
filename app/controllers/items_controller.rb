@@ -72,6 +72,10 @@ class ItemsController < ApplicationController
     @items = Item.where(category_id: @category2.id) if @category2
   end
 
+  def baby
+    @category3 = Category.find_by(name: 'ベビー・キッズ')
+    @items = Item.where(category_id: @category3.id) if @category3
+  end
   
  
 

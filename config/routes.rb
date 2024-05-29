@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get '/ladies', to: 'items#ladies'
   get '/mens', to: 'items#mens'
+  get '/baby', to: 'items#baby'
   
   
 
