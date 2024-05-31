@@ -10,10 +10,10 @@
 }
 
 .item-box {
-  background-color: #FFF;
+  background-color: white;
   width: 70vw;
   min-width: 1200px;
-  padding: 10vh 15vw;
+  padding: 3vh 15vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,11 +26,10 @@
 }
 
 .item-box-img {
-  height: 50vh;
-  width: 60vw;
-  min-height: 500px;
+
+  min-height: 400px;
   background-color: rgb(205, 202, 202);
-  object-fit: contain;
+  
 }
 
 .item-price-box {

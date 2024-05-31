@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
     @category1_items = Item.where(category_id: @category.id) if @category
     
   end
-
+  
   def new
     @item = Item.new
   end
@@ -26,9 +26,9 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
-
     @previous_item = @item.previous_item
     @next_item = @item.next_item
+
   end
 
   def edit  

@@ -12,7 +12,6 @@
 
 .item-contents3{
   height: 5000px;
-  
   position: relative;
   display: flex;
 }
@@ -38,20 +37,23 @@
   width: 90px;
 }
 
+
+
+
 .item-lists3{
   padding-left: 20px;
   padding-top: 20px;
+  width: 1400px;
+ 
   
-  width: 1200px;
-  height: 4960px;
   
 }
 
-.list3{
-  width: 1100px;
-  height: 1000px;
-  left: 20px;
-  background-color: blue; 
+.list3{ 
+  width: 1360px;
+  display: flex;
+  flex-wrap: wrap;
+  
 }
 
 .posted-content3{
@@ -59,7 +61,9 @@
   height: 300px;
   text-align: center;
   background-color: rgb(147, 247, 213);
-  margin-left: 20px;
+  margin-left: 30px;
+  margin-right: 50px;
+  margin-top: 20px;
   padding-top: 15px;
   border: 2px solid lightgray;
   border-radius: 30px;

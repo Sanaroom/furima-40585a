@@ -34,15 +34,14 @@
 
   
   <ul class='item-lists3' id="detailed-search-result">
-    <% @items.each do |item| %>
-      <li class='list3'>
+    <li class='list3'>
+      <% @items.each do |item| %>
         <div class="posted-content3">
           <%= image_tag item.image,class:"image-width" %><br>
           <%= item.name%><br>
           <%= link_to '詳細', item_path(item.id)%>
         </div>
-      </li>
-    <% end %>
+      <% end %>
+    </li>
   </ul>
-  
 </div>

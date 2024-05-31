@@ -1,6 +1,7 @@
 window.addEventListener('turbo:load', function(){
   const category = document.getElementById("category-list");
   const pullDownMenu = document.getElementById("category-pull-down");
+  const brand = document.getElementById("brand-list");
 
   category.addEventListener('mouseover', function(){
     this.setAttribute("style", "background-color: skyblue;");
@@ -16,5 +17,13 @@ window.addEventListener('turbo:load', function(){
       pullDownMenu.setAttribute("style", "display:block;");
     }
   });
+
+  brand.addEventListener('mouseover', function(){
+    this.setAttribute("style", "background-color: skyblue;");
+  });
+  brand.addEventListener('mouseout', function(){
+    this.removeAttribute("style", "background-color: skyblue;");
+  });
+
 });
 

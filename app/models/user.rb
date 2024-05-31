@@ -15,7 +15,11 @@ class User < ApplicationRecord
   has_many :orders
   has_many :comments
 
+  
+
   def self.ransackable_attributes(auth_object = nil)
     ["nickname"]
   end
+
+  
 end
