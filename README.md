@@ -35,6 +35,7 @@ Association
   has_many:comments
 
 
+
 ## orders テーブル
 | Column    | Type      | Options     |
 | --------- | --------- | ----------- |
