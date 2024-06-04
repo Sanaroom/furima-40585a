@@ -152,8 +152,10 @@
             <div class='item-price'>
               <span><%= item.price %>円<br><%= item.shipping_cost.name %></span>
               <div class='star-btn'>
-                <%= image_tag "star.png", class:"star-icon" %>
-                <span class='star-count'>0</span>
+                <%= button_to '#', remote: true, id: 'count-button' do %>
+                  <%= image_tag 'star.png', class: 'star-icon' %>
+                  <span class='star-count'>0</span>
+                <% end %>
               </div>
             </div>
           </div>

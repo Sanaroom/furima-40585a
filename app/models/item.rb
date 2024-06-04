@@ -10,6 +10,7 @@ class Item < ApplicationRecord
     validates :prefecture_id
     validates :shipping_date_id
     validates :price
+    validates :favo
   end
 
   
