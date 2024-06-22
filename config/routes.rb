@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get '/ladies', to: 'items#ladies'
   get '/mens', to: 'items#mens'
   get '/baby', to: 'items#baby'
+
+  get '/ordered', to: 'users#ordered'
   
   
 
@@ -18,7 +20,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:show] 
+  resources :users, only: [:index,:show] 
    
 
 
