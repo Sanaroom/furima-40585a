@@ -75,8 +75,21 @@
     <div class="option">
 
       <div class="favorite-btn">
-        <%= image_tag "star.png" ,class:"favorite-star-icon" ,id:"mybutton",width:"20",height:"20"%>
-        <span>お気に入り 0</span>
+        <% if user_signed_in?%>
+          <% if current_user.id != @item.user_id%>
+            <% if @favorited %>
+              <%= button_to "いいね！を解除する",unfavorite_item_path(@item),method: :delete, class:"unfavo", id:"favorite-b"%>
+              <span class="star-icon2">♥</span>
+            <% else %>
+              <%= button_to "いいね！する",favorite_item_path(@item),method: :post, class:"favo", id:"favorite-b"%>
+              <span class="star-icon1">♡</span>
+            <% end %>
+            <% else %>
+              <span class="star-icon1">♡</span>
+          <% end %>
+        <% end %>
+        <%= @item.favorites.length%>
+        
       </div>
       
       <div class="report-btn">

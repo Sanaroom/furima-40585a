@@ -151,7 +151,15 @@
             </h3>
             <div class='item-price'>
               <span><%= item.price %>円<br><%= item.shipping_cost.name %></span>
-              <div class='star-btn'></div>
+              <div class='star-btn'>
+                <% if @favorited_items.include?(item.id) %>
+                  <span class="star-icon2">♥</span>
+                  <span class='star-count'><%= item.favorites.length%></span>
+                <% else %>
+                  <span class="star-icon1">♡</span>
+                  <span class='star-count'><%= item.favorites.length%></span>
+                <% end %>
+              </div>
             </div>
           </div>
         <%end%>

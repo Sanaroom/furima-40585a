@@ -21,6 +21,8 @@ class Item < ApplicationRecord
   has_one :order
   has_one_attached :image
   has_many :comments
+  has_many :favorites, dependent: :destroy
+  
   
   def self.search(search)
     if search != ""

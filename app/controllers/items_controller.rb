@@ -1,12 +1,18 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show,:search]
-  before_action :set_item, only: [ :edit, :update, :destroy]
+  before_action :set_item, only: [  :edit, :update, :destroy, :favorite, :unfavorite]
 
   def index
     @items = Item.order('created_at DESC')
     @category = Category.find_by(name: 'レディース')
     @category1_items = Item.where(category_id: @category.id) if @category
-    
+    @items = Item.includes(:favorites).all
+    if user_signed_in?
+      @favorited_items = current_user.favorites.pluck(:item_id)
+    else
+      @favorited_items = []
+    end
+      
   end
   
   def new
@@ -28,10 +34,31 @@ class ItemsController < ApplicationController
     @comments = @item.comments.includes(:user)
     @previous_item = @item.previous_item
     @next_item = @item.next_item
-
-    
-
+    if user_signed_in? #ログイン済み
+      favorites = Favorite.where(user_id: current_user.id).pluck(:item_id)  # ログイン中のユーザーのお気に入りのpost_idカラムを取得
+      @favorited = current_user.favorites.exists?(item_id: @item.id)
+    end
   end
+
+  def favorite
+    if user_signed_in? #ログイン済み
+      if @item.user_id != current_user.id #投稿者以外に限定
+        current_user.favorites.create(item:@item)
+        redirect_to @item
+      end
+    end
+  end
+
+  def unfavorite
+    if user_signed_in? #ログイン済み
+      favorite = current_user.favorites.find_by(item:@item)
+      favorite.destroy if favorite
+      redirect_to @item      
+    end
+  end
+
+
+
 
   def edit  
     if @item.user_id != current_user.id || @item.order!=nil
@@ -56,6 +83,9 @@ class ItemsController < ApplicationController
     else
       redirect_to root_path
     end
+
+    #@favorite = Favorite.find_by(user_id:current_user.id,item_id:@item.id)
+    #@favorite.destroy
   end
 
 
