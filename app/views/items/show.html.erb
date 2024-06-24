@@ -128,8 +128,8 @@
     <h4>＜コメント一覧＞</h4>
     <% @comments.each do |comment| %>
       <p>
-        <strong><%= link_to comment.user.nickname, user_path(comment.user) %>：
-        <%= comment.comment %>  <%#= button_to "削除",item_comment_path(@item, comment_id: comment.id),data: {turbo_method: :delete} %></strong>
+        <strong><%= link_to comment.user.nickname, user_path(comment.user) %>：</strong>
+        <%= comment.comment %>
       </p>
       
     <% end %>
