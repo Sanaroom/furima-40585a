@@ -39,7 +39,7 @@
     <ul class='lists-right'>
       <% if user_signed_in? %>
       <li><%= link_to current_user.nickname, user_path(current_user), class: "user-nickname"  %></li>
-      <li><%= link_to "購入履歴",users_path(@user), class: "user-nickname"  %></li>
+      <li><%= link_to "購入履歴","#", class: "user-nickname"  %></li>
       <li><%= link_to 'ログアウト', destroy_user_session_path, data: {turbo_method: :delete}, class: "logout" %> </li>
 
       <% else %>

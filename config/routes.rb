@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:index,:show] do
+  resources :users, only: [:show] do
     collection do
       get :favorites
     end
