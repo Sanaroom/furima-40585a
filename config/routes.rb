@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get '/mens', to: 'items#mens'
   get '/baby', to: 'items#baby'
 
-  get '/ordered', to: 'users#ordered'
+  
   
   
 
