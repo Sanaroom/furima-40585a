@@ -10,8 +10,6 @@ class ItemOrder
   validates :token
   end
 
-  belongs_to :order
-  belongs_to :item
 
   
   # [3桁ハイフン4桁」の半角文字列のみ保存可能なこと（良い例：123-4567　良くない例：1234567）。
