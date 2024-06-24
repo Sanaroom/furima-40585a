@@ -302,6 +302,20 @@ a {
   font: bold;
 }
 
+.your-item{
+  position: absolute;
+  top: 10%;
+  width: 100%;
+  text-align: center;
+  background-color: blue;
+}
+
+.your-item>span{
+  color: #FFF;
+  font-size: 45px;
+  font: bold;
+}
+
 
 .item-info {
   background-color: #FFF;

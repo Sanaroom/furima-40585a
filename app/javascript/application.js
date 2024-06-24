@@ -5,5 +5,5 @@ import "price"
 import "card"
 import "category"
 import "prefecture"
-import "star"
+
 import "favo"

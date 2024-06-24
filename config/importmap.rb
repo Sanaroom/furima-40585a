@@ -9,5 +9,5 @@ pin "price", to: "price.js"
 pin "card", to:"card.js"
 pin "category", to:"category.js"
 pin "prefecture", to:"category.js"
-pin "star", to:"star.js"
+
 pin "favo", to:"favo.js"

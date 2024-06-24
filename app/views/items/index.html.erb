@@ -143,6 +143,11 @@
               <span>Sold Out!!</span>
             </div>
             <% end %>
+            <% if user_signed_in? && current_user.id == item.user_id%>
+              <div class="your-item">
+                <span>出品中</span>
+              </div>
+            <% end %>
           </div>
 
           <div class='item-info'>
@@ -152,12 +157,14 @@
             <div class='item-price'>
               <span><%= item.price %>円<br><%= item.shipping_cost.name %></span>
               <div class='star-btn'>
-                <% if @favorited_items.include?(item.id) %>
-                  <span class="star-icon2">♥</span>
-                  <span class='star-count'><%= item.favorites.length%></span>
-                <% else %>
-                  <span class="star-icon1">♡</span>
-                  <span class='star-count'><%= item.favorites.length%></span>
+                <% if user_signed_in? %>
+                  <% if @favorited_items.include?(item.id) %>
+                    <span class="star-icon2">♥</span>
+                    <span class='star-count'><%= item.favorites.length%></span>
+                  <% else %>
+                    <span class="star-icon1">♡</span>
+                    <span class='star-count'><%= item.favorites.length%></span>
+                  <% end %>
                 <% end %>
               </div>
             </div>

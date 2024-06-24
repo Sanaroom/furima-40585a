@@ -7,6 +7,15 @@ class CommentsController < ApplicationController
     end
   end
 
+  #def destroy
+    #@item = Item.find(params[:item_id])
+    #@comment = Comment.find([:id])
+    #if @comment.destroy
+      #redirect_to item_path(@item)
+    #end
+  #end
+
+
   private
 
   def comment_params

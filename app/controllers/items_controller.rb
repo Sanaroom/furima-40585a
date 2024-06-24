@@ -12,6 +12,8 @@ class ItemsController < ApplicationController
     else
       @favorited_items = []
     end
+
+    
       
   end
   
