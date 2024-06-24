@@ -10,7 +10,7 @@ const pay = () => {
   expiryElement.mount('#expiry-form');
   cvcElement.mount('#cvc-form');
 
-  if (form!=null){
+  
   const form = document.getElementById('charge-form')
   form.addEventListener("submit", (e) => {    
     payjp.createToken(numberElement).then(function (response) {
@@ -29,7 +29,7 @@ const pay = () => {
     e.preventDefault();
   });
 };
-};
+
 
 window.addEventListener("turbo:load", pay);
 window.addEventListener("turbo:render", pay);

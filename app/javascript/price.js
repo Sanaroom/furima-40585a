@@ -2,7 +2,7 @@ const price = () => {
 
   const priceInput = document.getElementById("item-price");
 
-if (priceInput!=null){
+
   priceInput.addEventListener("input", function(){
     
     const inputValue = priceInput.value;
@@ -12,7 +12,7 @@ if (priceInput!=null){
     profitNumber.innerHTML = Math.floor(inputValue - addTaxDom.innerHTML);
  });
 };
-};
+
 
 window.addEventListener("turbo:load", price);
 window.addEventListener("turbo:render", price);
