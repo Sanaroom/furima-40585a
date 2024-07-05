@@ -11,3 +11,4 @@ pin "category", to:"category.js"
 pin "prefecture", to:"category.js"
 
 pin "favo", to:"favo.js"
+# pin "popup", to:"popup.js"
