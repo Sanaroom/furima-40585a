@@ -2,9 +2,6 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'items#index'
 
-  get '/ladies', to: 'items#ladies'
-  get '/mens', to: 'items#mens'
-  get '/baby', to: 'items#baby'
 
   
   
